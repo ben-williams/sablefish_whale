@@ -122,10 +122,3 @@ whales2 %>%
     tidytable::left_join.(whale_catch, by = c("year", "loc")) -> whales3
 
 vroom::vroom_write(whales3, here::here('output', 'whales_dep.csv'), delim = ',')
-
-
-  tidytable::filter.(fmp_subarea %in% c("CG", "SE", "WY", "WG"),
-                     year >= 2001) %>%  glimpse()
-
-
-
