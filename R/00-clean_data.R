@@ -104,6 +104,8 @@ bind_rows(adfg_2021, adfg_old) %>%
   tidytable::filter.(!(RA %in% c(649, 659))) %>% 
   tidytable:: mutate.(region = ifelse(fmp_area %in% c("CG", "SE", "WY"), "east", "west")) -> whale_catch
 
+vroom::vroom_write(whale_catch, here::here('output', 'whale_catch.csv'), delim = ',')
+
 
 whales2 %>% 
   tidytable::summarise.(depredation = sum(int),
